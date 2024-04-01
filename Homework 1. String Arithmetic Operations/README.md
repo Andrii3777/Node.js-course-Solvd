@@ -1,4 +1,4 @@
-### Homework 1: String Arithmetic Operations
+# <div align="center">Homework 1: String Arithmetic Operations</div>
 ### Deadline: April 4th
 ### Task:
 Your task is to implement arithmetic operations on strings without relying on bigint or arithmetic libraries. You need to create functions that perform arithmetic operations as string functions, considering only positive integers (negative numbers can be avoided, as all numbers will be positive integers).
