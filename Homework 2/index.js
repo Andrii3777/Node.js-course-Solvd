@@ -29,8 +29,10 @@ console.log("15. ", JSON.stringify(actualArr) === JSON.stringify(expectedArr));
 
 actualArr = DataTransformation.replaceElementsWithTypes([1, [2, "12"], [], true, 123n]);
 expectedArr = ["number","object","object","boolean","bigint"];
+
 console.log("16. ", JSON.stringify(actualArr) === JSON.stringify(expectedArr));
 
 actualArr = DataTransformation.removeFalsyExpressions(['', 'a', null, 1, undefined, NaN, [], {}]);
 expectedArr = ['a', 1, [], {}];
+
 console.log("17. ", JSON.stringify(actualArr) === JSON.stringify(expectedArr));
