@@ -8,7 +8,7 @@ function createImmutableObject(obj) {
             const value = obj[key];
 
             if (value !== null && typeof value === 'object') {
-                const newValue = Array.isArray(obj) ? [] : {};
+                const newValue = Array.isArray(value) ? [] : {};
                 defineImmutableProperty(newObj, key, newValue);
                 createObjectRecursive(value, newObj[key]);
             } else {
