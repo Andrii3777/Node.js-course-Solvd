@@ -27,7 +27,7 @@ function defineImmutableProperty(obj, key, value) {
         value: value,
         writable: false,
         enumerable: true,
-        configurable: true
+        configurable: false
     });
 }
 
@@ -48,7 +48,8 @@ const originalObject = {
 // Testing function to output "writable" flags
 function checkWritable(obj) {
     for (let key in obj) {
-        console.log(`${key}: ${Object.getOwnPropertyDescriptor(obj, key).writable}`);
+        console.log(`${key} writable: ${Object.getOwnPropertyDescriptor(obj, key).writable}`);
+        console.log(`${key} configurable: ${Object.getOwnPropertyDescriptor(obj, key).configurable}`);
         if (typeof obj[key] === 'object' && obj[key] !== null) {
             checkWritable(obj[key]);
         }
