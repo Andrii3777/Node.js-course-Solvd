@@ -27,20 +27,11 @@ console.log('person.email:', person.email === "john.doe@example.com");
 
 person.updateInfo = function (newInfo) {
     for (let key in newInfo) {
-        if (key in person) {
-            Object.defineProperty(person, key, {
-                value: newInfo[key],
-                writable: false,
-                enumerable: true,
-                configurable: true
-            });
+        if (key in person && Object.getOwnPropertyDescriptor(this, key).writable) {
+            person[key] = newInfo[key];
         }
     }
 }
-
-person.updateInfo({ firstName: "Jane", age: 32 });
-console.log('person.firstName:', person.firstName === "Jane");
-console.log('person.age:', person.age === 32);
 
 Object.defineProperty(person, 'address', {
     value: {},
@@ -48,6 +39,11 @@ Object.defineProperty(person, 'address', {
     enumerable: false,
     configurable: false
 });
+
+person.updateInfo({ firstName: "Jane", age: 32, address: "New address" });
+console.log('person.firstName:', person.firstName === "John");
+console.log('person.age:', person.age === 30);
+console.log('person.address:', person.address === "New address");
 
 // Throws an error in strict mode
 delete person.address;
