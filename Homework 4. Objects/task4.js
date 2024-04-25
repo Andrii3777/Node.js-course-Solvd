@@ -46,18 +46,18 @@ const originalObject = {
 };
 
 // Testing function to output "writable" flags
-function checkWritable(obj) {
+function checkImmutable(obj) {
     for (let key in obj) {
         console.log(`${key} writable: ${Object.getOwnPropertyDescriptor(obj, key).writable}`);
         console.log(`${key} configurable: ${Object.getOwnPropertyDescriptor(obj, key).configurable}`);
         if (typeof obj[key] === 'object' && obj[key] !== null) {
-            checkWritable(obj[key]);
+            checkImmutable(obj[key]);
         }
     }
 }
 
 const immutableObject = createImmutableObject(originalObject);
-checkWritable(immutableObject); // should be all false
+checkImmutable(immutableObject); // should be all false
 
 const person = {
     firstName: "John",
@@ -67,4 +67,4 @@ const person = {
 };
 
 const immutablePerson = createImmutableObject(person);
-checkWritable(immutablePerson); // should be all false
+checkImmutable(immutablePerson); // should be all false
