@@ -150,14 +150,14 @@ RedBlackTree.prototype._fixDeleteLeftChild = function(node) {
  * @returns {Node} The node after fixing the case.
  */
 RedBlackTree.prototype._fixDeleteCase2 = function(node) {
-    let sibling = node.parent.right; // Sibling node
+    let sibling = node.parent.right;
     if (sibling.left.color === 'BLACK' && sibling.right.color === 'BLACK') {
-        sibling.color = 'RED';    // Recolor sibling to red
-        node = node.parent;       // Move `node` up the tree to its parent
+        sibling.color = 'RED';
+        node = node.parent;
     } else {
-        return this._fixDeleteCase3(node); // Move to the next case
+        return this._fixDeleteCase3(node);
     }
-    return node; // Return the updated node
+    return node;
 }
 
 /**
