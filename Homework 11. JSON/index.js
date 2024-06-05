@@ -11,5 +11,5 @@ for (const test of tests) {
     originalParseRes = JSON.parse(test);
     console.log("Is str correctly parsed?:", isEqual(customParseRes, originalParseRes), '\n');
 
-    // console.log(myJSONParse(test)); // uncomment this line to see parsed results
+    console.log(myJSONParse(test));
 }
